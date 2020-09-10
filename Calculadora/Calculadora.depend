@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1599774875 source:c:\daiana\1. utn\tp_laboratorio_1\calculadora\funciones.c
+	"funciones.h"
+	<stdio.h>
+
+1599774808 c:\daiana\1. utn\tp_laboratorio_1\calculadora\funciones.h
+
+1599775429 source:c:\daiana\1. utn\tp_laboratorio_1\calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
