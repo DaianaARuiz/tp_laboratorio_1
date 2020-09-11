@@ -41,7 +41,7 @@ float RestarNumeros (float, float);
 float MultiplicacionNumeros (float, float);
 
 
-/** \brief Calcula la división de los números ingresados.
+/** \brief Calcula la división de los números ingresados(siempre y cuando el divisor no sea 0).
  *
  * \param El valor del dividendo.
  * \param El valor del divisor.
@@ -66,7 +66,7 @@ int ValidarNumeroParaFactorial(float);
 /** \brief Calcula el factorial de un números.
  *
  * \param int El números sobre el cual se realiza el factorial.
- * \return long int El resultado del factorial del número.
- *
+ * \return long int -Si se pudo calcular --- devuelve resultado del factorial del número.
+                    -Si no se pudo calcular ---devuelve un 0.
  */
 long int CalcularFactorial(int);

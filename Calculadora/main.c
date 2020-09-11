@@ -2,14 +2,6 @@
 #include <stdlib.h>
 #include "funciones.h"
 
-int MostrarMenu(int,int, float, float);
-float SumarNumeros (float, float);
-float RestarNumeros (float, float);
-float MultiplicacionNumeros (float, float);
-float DividirNumeros (float, float);
-int ValidarNumeroParaFactorial(float);
-long int CalcularFactorial(int);
-
 int main()
 {
   int opcion;
@@ -60,21 +52,10 @@ int main()
                 suma = SumarNumeros (primerNumIngresado, segundoNumIngresado);
                 resta = RestarNumeros (primerNumIngresado, segundoNumIngresado);
                 multiplicacion=MultiplicacionNumeros (primerNumIngresado, segundoNumIngresado);
-
-                if(segundoNumIngresado!=0)
-                {
-                    division = DividirNumeros (primerNumIngresado, segundoNumIngresado);
-                }
-
-
-                if(ValidarNumeroParaFactorial(primerNumIngresado)==1 && ValidarNumeroParaFactorial(segundoNumIngresado)==1)
-                {
-                    factorialPrimerNumero=CalcularFactorial(primerNumIngresado);
-                    factorialSegundoNumero=CalcularFactorial(segundoNumIngresado);
-                }
-
+                division = DividirNumeros (primerNumIngresado, segundoNumIngresado);
+                factorialPrimerNumero=CalcularFactorial(primerNumIngresado);
+                factorialSegundoNumero=CalcularFactorial(segundoNumIngresado);
                 banderaCalculoRealizado=1;
-
             }else
             {
                 printf("\nAntes de calcular las operaciones. Por favor ingrese los operandos.\n");
@@ -98,12 +79,12 @@ int main()
                     printf("No es posible dividir por 0\n");
                 }
 
-                if(ValidarNumeroParaFactorial(primerNumIngresado)==1 && ValidarNumeroParaFactorial(segundoNumIngresado)==1)
+                if(CalcularFactorial(primerNumIngresado)!=0 && CalcularFactorial(segundoNumIngresado)!=0)
                 {
                     printf("El factorial de %.2f es: %d y El factorial de %.2f es: %d \n", primerNumIngresado,factorialPrimerNumero,segundoNumIngresado,factorialSegundoNumero);
                 }else
                 {
-                    printf("No se puede calcular el factorial de un numero decimal, ni de un número negativo.\n");
+                    printf("No se puede calcular el factorial de un numero decimal, ni de un numero negativo.\n");
                 }
             }else
             {
@@ -115,7 +96,6 @@ int main()
         case 5:
             printf ("\n¡Gracias por usar nuestra calculadora!\n");
             break;
-
 	}
 
     }while (opcion != 5);

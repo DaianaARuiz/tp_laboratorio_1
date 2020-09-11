@@ -68,8 +68,11 @@ float MultiplicacionNumeros (float primerNumero, float segundoNumero)
 
 float DividirNumeros (float numero1, float numero2)
 {
-     float division;
-    division = numero1 / numero2;
+    float division;
+    if(numero2!=0)
+    {
+      division = numero1 / numero2;
+    }
     return division;
 }
 
@@ -82,9 +85,9 @@ int ValidarNumeroParaFactorial(float decimal)
   valido=1;
 
   if (decimal - entero || entero < 0)
-    {
-        valido=0;
-    }
+  {
+    valido=0;
+  }
 
     return valido;
 }
@@ -93,15 +96,19 @@ int ValidarNumeroParaFactorial(float decimal)
 long int CalcularFactorial(int numero)
 {
     int resultado;
+    resultado=0;
 
-    if(numero == 0)
+    if(ValidarNumeroParaFactorial(numero)==1)
     {
-        resultado = 1;
-    }
-    else
-    {
-         resultado = numero * CalcularFactorial(numero - 1);
-    }
+        if(numero == 0)
+        {
+            resultado = 1;
+        }
+        else
+        {
+            resultado = numero * CalcularFactorial(numero - 1);
+        }
 
+    }
     return resultado;
 }
