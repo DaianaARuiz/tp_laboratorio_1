@@ -11,8 +11,8 @@ int main()
   float resta;
   float multiplicacion;
   float division;
-  int factorialPrimerNumero;
-  int factorialSegundoNumero;
+  long int factorialPrimerNumero;
+  long int factorialSegundoNumero;
   int banderaIngresoNum1;
   int banderaIngresoNum2;
   int banderaPrimeraVez;
@@ -28,7 +28,7 @@ int main()
     if(banderaPrimeraVez==0)
     {
       printf("****************************************");
-      printf("\n\nBIENVENIDOS A NUESTRA CALCULADORA\n");
+      printf("\nBIENVENIDOS A NUESTRA CALCULADORA\n");
       printf("****************************************\n");
       banderaPrimeraVez=1;
     }
@@ -81,7 +81,7 @@ int main()
 
                 if(CalcularFactorial(primerNumIngresado)!=0 && CalcularFactorial(segundoNumIngresado)!=0)
                 {
-                    printf("El factorial de %.2f es: %d y El factorial de %.2f es: %d \n", primerNumIngresado,factorialPrimerNumero,segundoNumIngresado,factorialSegundoNumero);
+                    printf("El factorial de %.2f es: %ld y El factorial de %.2f es: %ld \n", primerNumIngresado,factorialPrimerNumero,segundoNumIngresado,factorialSegundoNumero);
                 }else
                 {
                     printf("No se puede calcular el factorial de un numero decimal, ni de un numero negativo.\n");

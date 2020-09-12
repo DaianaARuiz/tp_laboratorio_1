@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1599781928 source:c:\daiana\1. utn\tp_laboratorio_1\calculadora\funciones.c
+1599914318 source:c:\daiana\1. utn\tp_laboratorio_1\calculadora\funciones.c
 	"funciones.h"
 	<stdio.h>
 
-1599782239 c:\daiana\1. utn\tp_laboratorio_1\calculadora\funciones.h
+1599914739 c:\daiana\1. utn\tp_laboratorio_1\calculadora\funciones.h
 
-1599781649 source:c:\daiana\1. utn\tp_laboratorio_1\calculadora\main.c
+1599914177 source:c:\daiana\1. utn\tp_laboratorio_1\calculadora\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"

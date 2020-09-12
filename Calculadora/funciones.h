@@ -63,7 +63,7 @@ float DividirNumeros (float, float);
 int ValidarNumeroParaFactorial(float);
 
 
-/** \brief Calcula el factorial de un números.
+/** \brief Calcula el factorial de un número.
  *
  * \param int El números sobre el cual se realiza el factorial.
  * \return long int -Si se pudo calcular --- devuelve resultado del factorial del número.

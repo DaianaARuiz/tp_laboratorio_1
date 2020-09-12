@@ -95,7 +95,7 @@ int ValidarNumeroParaFactorial(float decimal)
 
 long int CalcularFactorial(int numero)
 {
-    int resultado;
+    long int resultado;
     resultado=0;
 
     if(ValidarNumeroParaFactorial(numero)==1)
