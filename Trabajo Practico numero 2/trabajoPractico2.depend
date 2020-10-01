@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1601086744 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\trabajopractico2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1601086737 source:c:\mis cosas\1. utn\prog-lab1\practicas-en-c\trabajopractico2\empleados.c
+
