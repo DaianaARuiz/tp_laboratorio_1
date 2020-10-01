@@ -10,3 +10,14 @@
 	<stdlib.h>
 	"funciones.h"
 
+1599914318 source:c:\mis cosas\1. utn\tp_laboratorio_1\calculadora\funciones.c
+	"funciones.h"
+	<stdio.h>
+
+1599914739 c:\mis cosas\1. utn\tp_laboratorio_1\calculadora\funciones.h
+
+1599914177 source:c:\mis cosas\1. utn\tp_laboratorio_1\calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
