@@ -4,7 +4,7 @@
 #include <ctype.h>
 #define TRUE 1
 #define FALSE 0
-#define TAM 4
+#define TAM 1000
 #include "empleados.h"
 
 int initEmployees(eEmpleado listaEmpleados[],int tamanioArray)
@@ -90,7 +90,7 @@ void PedirString(char texto[],char textoError[],int max, char input[])
 }
 
 
- eEmpleado CargarEmpleado(eEmpleado listaEmpleados[],int tamanioArray, int indiceLibre)
+ eEmpleado addEmployees(eEmpleado listaEmpleados[],int tamanioArray, int indiceLibre)
  {
     eEmpleado unEmpleado;
 
@@ -121,7 +121,7 @@ void PedirString(char texto[],char textoError[],int max, char input[])
  }
 
 
-void MostrarNominaDeEmpleados(eEmpleado listaEmpleados[],int cant)
+void printEmployees(eEmpleado listaEmpleados[],int cant)
 {
     printf("\n*********************************************************************************");
     printf("\n\t \tListado de empleados: \n\n");
@@ -156,11 +156,10 @@ int findEmployeeById(int idIngresado, int tam, eEmpleado listaEmpleados[])
     return idValido;
 }
 
-void ModificarUnEmpleado(eEmpleado listaEmpleados[],int idAModificar,int opcionModificar,int cant)
+void ModificarUnEmpleado(eEmpleado listaEmpleados[],int idAModificar,int opcionModificar)
 {
     char nombreModificado[51];
     char apellidoModificado[51];
-
 
     switch(opcionModificar)
     {
@@ -176,14 +175,12 @@ void ModificarUnEmpleado(eEmpleado listaEmpleados[],int idAModificar,int opcionM
              listaEmpleados[idAModificar].sector=PedirEntero("Ingrese nuevo sector: ","Error, reingrese sector valido: ");
             break;
         case 4:
-            listaEmpleados[idAModificar].sueldo=PedirEntero("Ingrese nuevo sueldo: ","Error, reingrese sueldo valido: ");
+            listaEmpleados[idAModificar].sueldo=PedirFlotante("Ingrese sueldo: ","Error, reingrese sueldo valido:");
                break;
         default:
                 printf("\nOpcion no valida. Intente nuevamente\n");
     }
 }
-
-
 
 int removeEmployee(eEmpleado listaEmpleados[],int contadorEmpleadosCargados, int idEliminar)
 {
@@ -224,7 +221,7 @@ int ValidarNumero(char numero[])
    return valido;
 }
 
-void MostrarNominaEmpleadosOrdenadosPorApellidoSector(eEmpleado unEmpleado[],int tamanioarray)
+void sortEmployees(eEmpleado unEmpleado[],int tamanioarray)
 {
     eEmpleado auxiliar;
 
@@ -232,7 +229,7 @@ void MostrarNominaEmpleadosOrdenadosPorApellidoSector(eEmpleado unEmpleado[],int
     {
         for(int j=i+1;j<tamanioarray;j++)
         {
-            if( strcmp(unEmpleado[i].apellido,unEmpleado[j].apellido)>0 || ( strcmp(unEmpleado[i].apellido,unEmpleado[j].apellido)==0  && unEmpleado[i].sector< unEmpleado[j].sector) )
+            if( strcmp(unEmpleado[i].apellido,unEmpleado[j].apellido)>0 || (strcmp(unEmpleado[i].apellido,unEmpleado[j].apellido)==0) && (unEmpleado[i].sector< unEmpleado[j].sector))
             {
                 auxiliar= unEmpleado[i];
                 unEmpleado[j]=unEmpleado[i];
@@ -240,7 +237,6 @@ void MostrarNominaEmpleadosOrdenadosPorApellidoSector(eEmpleado unEmpleado[],int
             }
         }
     }
-
 }
 
 float CalcularTotalSalarios(eEmpleado unEmpleado[],int cantEmpleados)

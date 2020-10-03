@@ -27,7 +27,7 @@ typedef struct
  * \param int El indice de la posicion libre donde se cargaran los datos
  * \return eEmpleado Una copia de todos los valores que se cargaron
  *
- */eEmpleado CargarEmpleado(eEmpleado [],int,int);
+ */eEmpleado addEmployees(eEmpleado [],int,int);
 
 /** \brief Busca el primer indice libre en un array
  *
@@ -44,15 +44,28 @@ typedef struct
  * \param int  La longitud de dicho array
  * \return void
  *
- */ void MostrarNominaDeEmpleados(eEmpleado [],int );
+ */ void printEmployees(eEmpleado [],int );
 
 
 
-void MostrarNominaEmpleadosOrdenadosPorApellidoSector(eEmpleado [],int);
+/** \brief Ordena los empleados por nombre y sector
+ *
+ * \param [] eEmpleado
+ * \param int Tamaño array
+ * \return void
+ *
+ */
+void sortEmployees(eEmpleado [],int);
 
-void ModificarUnEmpleado(eEmpleado [],int,int,int);
-
-
+/** \brief Modifica un campo a eleccion del array de empleados
+ *
+ * \param [] eEmpleado
+ * \param int El id del empleado que se quiere modificar
+ * \param int Numero que representa cual es el campo que se quiere modificar
+ * \return void
+ *
+ */
+void ModificarUnEmpleado(eEmpleado [],int,int);
 
 
 

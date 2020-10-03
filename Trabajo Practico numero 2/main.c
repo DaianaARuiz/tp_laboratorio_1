@@ -14,7 +14,7 @@
 #include <ctype.h>
 #define TRUE 1
 #define FALSE 0
-#define TAM 4
+#define TAM 1000
 #include "empleados.h"
 
 int main(void) {
@@ -47,7 +47,7 @@ int main(void) {
                     indiceLibre= BuscarLibre(listaEmpleados,TAM);
                     if(indiceLibre!=-1)
                     {
-                        CargarEmpleado(listaEmpleados,TAM,indiceLibre);
+                        addEmployees(listaEmpleados,TAM,indiceLibre);
                         contadorEmpleadosCargados++;
                         printf("\nEmpleado cargado con exito\n");
                     }else
@@ -59,7 +59,7 @@ int main(void) {
                 case 2:
                     if(contadorEmpleadosCargados!=0)
                     {
-                            MostrarNominaDeEmpleados (listaEmpleados,TAM);
+                            printEmployees (listaEmpleados,TAM);
                             printf("\nIngrese el ID del empleado que desea modificar:");
                             scanf("%d", &idAModificar);
 
@@ -67,7 +67,7 @@ int main(void) {
                             {
                                 printf("\n1-MODIFICAR NOMBRE\n2-MODIFICAR APELLIDO\n3-MODIFICAR SECTOR\n4-MODIFICAR SUELDO\nSeleccione la accion que desea realizar:");
                                 scanf("%d", &opcionModificar);
-                                ModificarUnEmpleado(listaEmpleados,idAModificar,opcionModificar,contadorEmpleadosCargados);
+                                ModificarUnEmpleado(listaEmpleados,idAModificar,opcionModificar);
                                 printf("\nModificacion cargada con exito\n");
                             }else
                             {
@@ -82,7 +82,7 @@ int main(void) {
                 case 3:
                     if(contadorEmpleadosCargados!=0)
                     {
-                            MostrarNominaDeEmpleados (listaEmpleados,TAM);
+                            printEmployees (listaEmpleados,TAM);
                             printf("\nIngrese el ID del empleado que desea dar de baja:");
                             scanf("%d", &idEliminar);
                             if(removeEmployee(listaEmpleados,contadorEmpleadosCargados,idEliminar)!=-1)
@@ -105,16 +105,15 @@ int main(void) {
                                 printf("2.Ordenar lista de empleados alfabeticamente por apellido y sector\n");
                                 printf("3.Informar total y promedio de los salarios, y cuantos empleados superan el salario promedio.\n");
                                 printf("4.Salir de este menu\n");
-
                                 opcionMenuMostrar=PedirEntero("Eliga una opcion: ","Error.No se permiten letras. Reingrese la opcion: ");
 
                                 switch(opcionMenuMostrar)
                                 {
                                     case 1:
-                                         MostrarNominaDeEmpleados (listaEmpleados,contadorEmpleadosCargados);
+                                         printEmployees (listaEmpleados,contadorEmpleadosCargados);
                                         break;
                                     case 2:
-                                        MostrarNominaEmpleadosOrdenadosPorApellidoSector(listaEmpleados,contadorEmpleadosCargados);
+                                        sortEmployees(listaEmpleados,TAM);
                                         break;
                                     case 3:
                                         SalarioTotal=CalcularTotalSalarios(listaEmpleados,contadorEmpleadosCargados);
