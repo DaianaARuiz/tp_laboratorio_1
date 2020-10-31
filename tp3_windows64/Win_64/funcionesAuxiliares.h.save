@@ -1,0 +1,3 @@
+void employee_showAllEmployees(LinkedList*);
+
+void employee_calculateNewId(LinkedList* pArrayListEmployee,int* id);

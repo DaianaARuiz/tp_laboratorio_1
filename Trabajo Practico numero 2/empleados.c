@@ -231,8 +231,8 @@ void sortEmployees(eEmpleado unEmpleado[],int tamanioarray)
         {
             if( strcmp(unEmpleado[i].apellido,unEmpleado[j].apellido)>0 || (strcmp(unEmpleado[i].apellido,unEmpleado[j].apellido)==0) && (unEmpleado[i].sector< unEmpleado[j].sector))
             {
-                auxiliar= unEmpleado[i];
-                unEmpleado[j]=unEmpleado[i];
+                auxiliar= unEmpleado[i]; //empleado i vale juan
+                unEmpleado[i]=unEmpleado[j]; //empleado subj vale maria
                 unEmpleado[j]=auxiliar;
             }
         }

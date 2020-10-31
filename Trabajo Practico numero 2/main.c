@@ -141,7 +141,7 @@ int main(void) {
 
                         }else
                         {
-                            printf("\nPor favor.Primero realize la carga de los empleados\n");
+                            printf("\nPor favor.Primero realice la carga de los empleados\n");
                         }
                     break;
                 default:
