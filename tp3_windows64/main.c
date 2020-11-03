@@ -7,16 +7,16 @@
 
 /****************************************************
     Menu:
-     1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).
+     1. Cargar los datos de los empleados desde el archivo data.csv (modo texto). (x)
      2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
-     3. Alta de empleado
-     4. Modificar datos de empleado
-     5. Baja de empleado
-     6. Listar empleados
-     7. Ordenar empleados
-     8. Guardar los datos de los empleados en el archivo data.csv (modo texto).
-     9. Guardar los datos de los empleados en el archivo data.csv (modo binario).
-    10. Salir
+     3. Alta de empleado (x)
+     4. Modificar datos de empleado (x)
+     5. Baja de empleado (x)
+     6. Listar empleados (x)
+     7. Ordenar empleados (x)
+     8. Guardar los datos de los empleados en el archivo data.csv (modo texto). (x)
+     9. Guardar los datos de los empleados en el archivo data.csv (modo binario).(x)
+    10. Salir (x)
 *****************************************************/
 
 
@@ -32,7 +32,6 @@ int main()
     if(listaEmpleados!=NULL)
     {
         do{
-
             printf("\n1. Cargar los datos (modo texto).\n2. Cargar los datos (modo binario).\n3. Alta\n4. Modificar datos\n5. Baja\n6. Listar \n");
             printf("7. Ordenar\n8. Guardar los datos (modo texto).\n9. Guardar los datos (modo binario).\n10. Salir\n");
             inputs_getAndValidateInt(&option,"\nIngrese su opcion: ","Error.Debe ingresar un numero:","\nError,solo puedes ingresar del [1] al [10]:",1,10);
@@ -47,7 +46,7 @@ int main()
                     printf("\nError al cargar los datos.\n");}
                     break;
                 case 2:
-
+                    controller_loadFromBinary("date.dat",listaEmpleados);
                     break;
                 case 3:
                     if(controller_addEmployee(listaEmpleados))
@@ -60,11 +59,11 @@ int main()
                     break;
                 case 4:
                     if(ll_isEmpty(listaEmpleados)==0){
-                            if( controller_editEmployee(listaEmpleados) ){
+                        if( controller_editEmployee(listaEmpleados) ){
                                 printf("\nEmpleado modificado con exito.\n");
-                            }else{
-                                printf("\nError. No se pudo modificar el empleado.\n");
-                            }
+                        }else{
+                            printf("\nError. No se pudo modificar el empleado.\n");
+                        }
                     }else{
                          printf("\nError. No hay empleados cargados.\n");
                     }
@@ -83,28 +82,38 @@ int main()
                     break;
                 case 6:
                     if(ll_isEmpty(listaEmpleados)==0){
-                        if( controller_ListEmployee(listaEmpleados) ){
-                           printf("\nEmpleado modificado con exito.\n");
-                        }else{
-                            printf("\nError. No se pudo modificar el empleado.\n");
-                        }
+                      controller_ListEmployee(listaEmpleados);
                     }else{
                          printf("\nError. No hay empleados cargados.\n");
                     }
                     break;
                 case 7:
-                    /*
-                    if(controller_sortEmployee(listaEmpleados))
-                    {
-                        printf("Los empleados se ordenaron correctamente");
+                    if(ll_isEmpty(listaEmpleados)==0){
+                        if(controller_sortEmployee(listaEmpleados ))
+                        {
+                            printf("\nLa lista se ordenó con exito.\n");
+                        }else{
+                             printf("\nHubo un error al ordenar la lista.\n");
+                        }
+                    }else{
+                         printf("\nError. No hay empleados cargados.\n");
                     }
-                    */
                     break;
                 case 8:
-                    //controller_saveAsText("data.csv",listaEmpleados);
+                    if(ll_isEmpty(listaEmpleados)==0){
+                        if(controller_saveAsText("data.csv",listaEmpleados))
+                        {
+                            printf("\nLos datos se guardaron con exito.\n");
+                        }else
+                        {
+                            printf("\nHubo un error al cargar los datos.\n");
+                        }
+                    }else{
+                         printf("\nError. No hay empleados cargados.\n");
+                    }
                     break;
                 case 9:
-                    //controller_saveAsBinary("databin",listaEmpleados);
+                    controller_saveAsBinary("databin",listaEmpleados);
                     break;
             }
         }while(option != 10);

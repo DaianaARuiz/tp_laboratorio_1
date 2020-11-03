@@ -235,3 +235,60 @@
 
 1604093978 c:\mis cosas\1. utn\prog-lab1\tp3_windows64\win_64\funcionesauxiliares.h
 
+1604323982 source:c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\inputs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"inputs.h"
+
+1604100308 c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\inputs.h
+
+1604373900 source:c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1604085691 c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\linkedlist.h
+
+1604177194 c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\employee.h
+
+1604373958 source:c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"inputs.h"
+
+1604361083 source:c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\funcionesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"inputs.h"
+	"funcionesAuxiliares.h"
+
+1604093978 c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\funcionesauxiliares.h
+
+1604373591 source:c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"inputs.h"
+
+1533118622 c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\controller.h
+
+1604374783 source:c:\mis cosas\1. utn\tp_laboratorio_1\tp3_windows64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"funcionesAuxiliares.h"
+

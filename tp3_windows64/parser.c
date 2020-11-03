@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "LinkedList.h"
-//#include "Employee.h"
+#include "Employee.h"
 
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
  *
@@ -20,12 +20,12 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     int retorno = 0;
     if(pFile!=NULL)
     {
+        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",idAux,nombreAux,horasTrabajadasAux,sueldoAux);
         do{
             fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",idAux,nombreAux,horasTrabajadasAux,sueldoAux);
-            empleado = employee_newParametros(idAux,nombreAux,horasTrabajadasAux);
+            empleado =employee_newParametros(idAux,nombreAux,horasTrabajadasAux,sueldoAux);
             ll_add(pArrayListEmployee,empleado);
         }while(!feof(pFile));
-
         retorno = 1;
     }
     return retorno;
@@ -40,6 +40,22 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
  */
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
+    Employee* empleado;
+    int retorno = 0;
 
-    return 1;
+    if(pFile!=NULL)
+    {
+        while(!feof(pFile))
+        {
+            empleado = employee_new();
+            if( (fread(empleado,sizeof(Employee),1,pFile)) == 1)
+            {
+                 printf("Puse a añadir un empleado");
+                ll_add(pArrayListEmployee,empleado);
+            }
+        }
+        retorno = 1;
+        printf("El pfile me dio distento de null en el parser.Retorna 1");
+    }
+    return retorno;
 }

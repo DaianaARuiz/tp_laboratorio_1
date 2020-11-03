@@ -5,7 +5,7 @@
 typedef struct
 {
     int id;
-    char nombre[128];
+    char nombre[51];
     int horasTrabajadas;
     int sueldo;
 }Employee;
@@ -28,5 +28,10 @@ int employee_setSueldo(Employee* this,int sueldo);
 int employee_getSueldo(Employee* this,int* sueldo);
 
 void  employee_showOneEmployee(Employee* empleado);
+
+int employee_CompareBySueldo(void* , void* );
+int employee_CompareByHoras(void* , void*);
+int employee_compareByName(void* , void*);
+int employee_CompareById(void* , void*);
 
 #endif // employee_H_INCLUDED

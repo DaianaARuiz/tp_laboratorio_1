@@ -149,3 +149,89 @@ void employee_showOneEmployee(Employee* empleado)
         printf("\t%d   %-11s %5d hs   $%2d\n",id,nombre,horasTrabajadas,sueldo);
     }
 }
+
+int employee_CompareBySueldo(void* item1, void* item2)
+{
+    Employee* empleado1;
+    Employee* empleado2;
+    int sueldo1;
+    int sueldo2;
+    int retorno=-1;
+
+    empleado1=(Employee*)item1;
+    empleado2=(Employee*)item2;
+
+    employee_getHorasTrabajadas(empleado1,&sueldo1);
+    employee_getHorasTrabajadas(empleado2,&sueldo2);
+
+    if(sueldo1 > sueldo2){
+        retorno = 1;
+    }else{
+        if(sueldo1==sueldo2){
+            retorno = 0;
+        }
+    }
+    return retorno;
+}
+
+
+int employee_CompareByHoras(void* item1, void* item2)
+{
+    Employee* empleado1;
+    Employee* empleado2;
+    int horas1;
+    int horas2;
+    int retorno=0;
+
+    empleado1=(Employee*)item1;
+    empleado2=(Employee*)item2;
+
+    if(employee_getHorasTrabajadas(empleado1,&horas1)==1 &&
+    employee_getHorasTrabajadas(empleado2,&horas2)==1  )
+    {
+        if(horas1>horas2){
+            retorno=1;
+        }else{
+            retorno=-1;
+        }
+    }
+    return retorno;
+}
+
+int employee_compareByName(void* item1, void* item2)
+{
+    Employee* empleado1;
+    Employee* empleado2;
+    char nombre1[51];
+    char nombre2[51];
+
+    empleado1=(Employee*)item1;
+    empleado2=(Employee*)item2;
+
+    employee_getNombre(empleado1,nombre1);
+    employee_getNombre(empleado2,nombre2);
+
+    return strcmp(nombre1,nombre2);
+}
+
+int employee_CompareById(void* item1, void* item2)
+{
+    Employee* empleado1;
+    Employee* empleado2;
+    int id1;
+    int id2;
+    int retorno=-1;
+
+    empleado1=(Employee*)item1;
+    empleado2=(Employee*)item2;
+    employee_getId(empleado1,&id1);
+    employee_getId(empleado2,&id2);
+
+    if(id1>id2){
+        retorno=1;
+    }else{
+        retorno=0;
+    }
+
+    return retorno;
+}

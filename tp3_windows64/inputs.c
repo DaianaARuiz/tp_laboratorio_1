@@ -43,12 +43,12 @@ int ValidarRangoEntero(int dato,int lowLimit ,int hiLimit)
 }
 
 
-int validateNumber(char* numeroStr)
+int validateNumber(char* numberStr)
 {
     int valido=1;
-    for(int i=0;i<strlen(numeroStr);i++)
+    for(int i=0;i<strlen(numberStr);i++)
     {
-	  if(numeroStr[i] < '0' || numeroStr[i] > '9')
+	  if(numberStr[i] < '0' || numberStr[i] > '9')
 	  {
 		  valido=0;
 	  }
@@ -57,14 +57,14 @@ int validateNumber(char* numeroStr)
 }
 
 
-int isValidName(char* cadena,int longitud)
+int isValidName(char* cadena,int length)
 {
     int retorno=1;
-    if(cadena !=NULL && longitud>0)
+    if(cadena !=NULL && length>0)
     {
-        for(int i=0; cadena[i]!='\0' && i<longitud; i++)
+        for(int i=0; cadena[i]!='\0' && i<length; i++)
         {
-            if((cadena[i]<'A' || cadena[i]>'Z') && (cadena[i]<'a' || cadena[i]>'z'))
+            if( (cadena[i]<'A' || cadena[i]>'Z') && (cadena[i]<'a' || cadena[i]>'z') && cadena[i] != ' ' && cadena[i] != '-' )
             {
                 retorno=0;
             }

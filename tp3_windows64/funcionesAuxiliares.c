@@ -19,7 +19,6 @@ void employee_showAllEmployees(LinkedList* pListEmployee)
     }
 }
 
-
 int employee_askIdToDelete(LinkedList* pListEmployee)
 {
     int retorno=-1;
@@ -84,6 +83,7 @@ int employee_registerEmployee(LinkedList* pArrayListEmployee)
     inputs_getAndValidateInt(&horasIngresadas,"Ingrese horas trabajadas: ","Error.En este campo no se admiten letras. Reingrese: ","Error. Solo se admite de [0] a [400]hs. Reingrese: ",0,400);
     inputs_getAndValidateInt(&sueldoIngresado,"Ingrese sueldo: ","Error.En este campo no se admiten letras. Reingrese: ","Error. Solo se admite de [0] a [100000]. Reingrese: ",0,100000);
     employee_calculateNewId(pArrayListEmployee,&id);
+
     if(nuevoEmpleado!=NULL)
     {
         employee_setNombre(nuevoEmpleado,nombreIngresado);
@@ -97,6 +97,29 @@ int employee_registerEmployee(LinkedList* pArrayListEmployee)
     return retorno;
 }
 
+/*
+int employee_lastId(LinkedList* pArrayListEmployee)
+{
+    Employee* pEmployee;
+    int IdAux;
+    int IdMax=0;
+    int lengthListEmployee = ll_len(pArrayListEmployee);
+
+    for(int i=0 ; i<lengthListEmployee; i++)
+    {
+        pEmployee = ll_get(pArrayListEmployee, i);
+        if(pEmployee != NULL)
+        {
+            employee_getId(pEmployee, &IdAux);
+            if(IdAux > IdMax)
+            {
+                IdMax = IdAux;
+            }
+        }
+    }
+    return IdMax;
+}
+*/
 
 int employee_lastId(LinkedList* pArrayListEmployee)
 {
@@ -119,6 +142,8 @@ int employee_lastId(LinkedList* pArrayListEmployee)
     }
     return IdMax;
 }
+
+
 
 void employee_calculateNewId(LinkedList* pArrayListEmployee,int* id)
 {
@@ -159,5 +184,3 @@ int employee_modifyEmployee(Employee* empleado, int opcion)
 
     return retorno;
 }
-
-
