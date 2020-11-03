@@ -26,11 +26,12 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 
     if(pEmpleado!=NULL)
     {
-        if( employee_setId(pEmpleado,id) )
-        {
-            employee_setNombre(pEmpleado,nombre);
-            employee_setHorasTrabajadas(pEmpleado,horasTrabajadas);
-            employee_setSueldo(pEmpleado,sueldo);
+        if( employee_setId(pEmpleado,id)){
+            if(employee_setNombre(pEmpleado,nombre)){
+                if( employee_setHorasTrabajadas(pEmpleado,horasTrabajadas)){
+                     employee_setSueldo(pEmpleado,sueldo);
+                }
+            }
         }
     }
     return pEmpleado;
@@ -43,7 +44,7 @@ int employee_setNombre(Employee* this,char* nombre)
     int setteo=0;
     if(this!=NULL && nombre!=NULL)
     {
-        if( isValidName(nombre,50 ) )
+        if( inputs_isValidName(nombre,50 ) )
         {
            strcpy(this->nombre,nombre);
            setteo=1;
@@ -156,7 +157,7 @@ int employee_CompareBySueldo(void* item1, void* item2)
     Employee* empleado2;
     int sueldo1;
     int sueldo2;
-    int retorno=-1;
+    int retorno=0;
 
     empleado1=(Employee*)item1;
     empleado2=(Employee*)item2;
@@ -167,8 +168,8 @@ int employee_CompareBySueldo(void* item1, void* item2)
     if(sueldo1 > sueldo2){
         retorno = 1;
     }else{
-        if(sueldo1==sueldo2){
-            retorno = 0;
+        if(sueldo1<sueldo2){
+            retorno = -1;
         }
     }
     return retorno;
@@ -192,7 +193,11 @@ int employee_CompareByHoras(void* item1, void* item2)
         if(horas1>horas2){
             retorno=1;
         }else{
-            retorno=-1;
+            if(horas1<horas2)
+            {
+                 retorno=-1;
+
+            }
         }
     }
     return retorno;
@@ -220,7 +225,7 @@ int employee_CompareById(void* item1, void* item2)
     Employee* empleado2;
     int id1;
     int id2;
-    int retorno=-1;
+    int retorno=0;
 
     empleado1=(Employee*)item1;
     empleado2=(Employee*)item2;
@@ -230,8 +235,10 @@ int employee_CompareById(void* item1, void* item2)
     if(id1>id2){
         retorno=1;
     }else{
-        retorno=0;
+        if(id1<id2)
+        {
+            retorno=-1;
+        }
     }
-
     return retorno;
 }

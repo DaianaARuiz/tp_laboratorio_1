@@ -13,7 +13,7 @@ void inputs_getAndValidateInt(int* input, char message[],char eMessage1[],char e
     fflush(stdin);
     scanf("%s", bufferNumStr);
 
-    while(validateNumber(bufferNumStr)==0)
+    while(inputs_validateNumber(bufferNumStr)==0)
     {
         printf("%s", eMessage1);
         fflush(stdin);
@@ -21,7 +21,7 @@ void inputs_getAndValidateInt(int* input, char message[],char eMessage1[],char e
     }
 
     bufferNum=atoi(bufferNumStr);
-    while(ValidarRangoEntero(bufferNum,lowLimit,hiLimit)==0)
+    while(inputs_validarRangoEntero(bufferNum,lowLimit,hiLimit)==0)
     {
         printf("%s", eMessage2);
         fflush(stdin);
@@ -30,7 +30,7 @@ void inputs_getAndValidateInt(int* input, char message[],char eMessage1[],char e
     *input=bufferNum;
 }
 
-int ValidarRangoEntero(int dato,int lowLimit ,int hiLimit)
+int inputs_validarRangoEntero(int dato,int lowLimit ,int hiLimit)
 {
     int valido=1;
 
@@ -43,7 +43,7 @@ int ValidarRangoEntero(int dato,int lowLimit ,int hiLimit)
 }
 
 
-int validateNumber(char* numberStr)
+int inputs_validateNumber(char* numberStr)
 {
     int valido=1;
     for(int i=0;i<strlen(numberStr);i++)
@@ -57,7 +57,7 @@ int validateNumber(char* numberStr)
 }
 
 
-int isValidName(char* cadena,int length)
+int inputs_isValidName(char* cadena,int length)
 {
     int retorno=1;
     if(cadena !=NULL && length>0)
@@ -80,7 +80,7 @@ void inputs_PedirNombre(char texto[],char textoError[],int max, char input[])
     printf("%s", texto);
     fflush(stdin);
     scanf("%[^\n]",auxiliar);
-    while(!isValidName(auxiliar,max)|| strlen(auxiliar)>max-1)
+    while(!inputs_isValidName(auxiliar,max)|| strlen(auxiliar)>max-1)
     {
         printf("%s", textoError);
         fflush(stdin);

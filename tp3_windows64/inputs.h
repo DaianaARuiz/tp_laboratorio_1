@@ -15,7 +15,7 @@ void inputs_getAndValidateInt(int* valor, char message[],char eMessage1[],char e
  * \return int si solo se ingreseo una numero [0] si no [-1]
  *
  */
-int validateNumber(char* numeroChar);
+int inputs_validateNumber(char* numeroChar);
 
 
 
@@ -26,8 +26,41 @@ int validateNumber(char* numeroChar);
  * \return int [1] si la cadena es valida,  [0] si no lo es
  *
  */
-int isValidName(char* cadena,int longitud);
+int inputs_isValidName(char* cadena,int longitud);
 
-int ValidarRangoEntero(int dato,int lowLimit ,int hiLimit);
 
+/** \brief Valida que un numero esté dentro de determinado rango
+ *
+ * \param dato int Numero a ser analizado
+ * \param lowLimit int Valor minimo aceptado
+ * \param hiLimit int Valor maximo aceptado
+ * \return int [1] si esta dentro del rango,  [0] si no lo esta
+ *
+ */
+int inputs_validarRangoEntero(int dato,int lowLimit ,int hiLimit);
+
+
+/** \brief Pide un nombre al usuario y valida que cumpla con las caracteristicas que debe tener un nombre
+ *
+ * \param [] char El mensaje para pedirle un nombre al usuario
+ * \param [] char El mensaje en caso de error
+ * \param int El valor maximo que soporta el array de caracteres que albergara el nombre
+ * \param [] char El array donde se guardara el array de caracteres
+ * \return void
+ *
+ */
 void inputs_PedirNombre(char [],char [],int , char []);
+
+
+/** \brief Pide un numero al usuario, valida y notifica en caso de que no sea un numero, o no este dentro del rango establecido
+ *
+ * \param input int* Donde se guardará el numero solicitado
+ * \param message[] char El mensaje solicitando el numero
+ * \param eMessage1[] char  El mensaje de error en caso de que se ingrese alguna letra
+ * \param lowLimit int El valor minimo que puede tener el numero ingresado
+ * \param hiLimit int El valor maximo que puede tener el numero ingresado
+ * \return void
+ *
+ */
+void inputs_getAndValidateInt(int* input, char message[],char eMessage1[],char eMessage2[], int lowLimit, int hiLimit);
+

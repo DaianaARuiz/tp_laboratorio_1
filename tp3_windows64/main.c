@@ -8,7 +8,7 @@
 /****************************************************
     Menu:
      1. Cargar los datos de los empleados desde el archivo data.csv (modo texto). (x)
-     2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
+     2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).(x)
      3. Alta de empleado (x)
      4. Modificar datos de empleado (x)
      5. Baja de empleado (x)
@@ -59,6 +59,7 @@ int main()
                     break;
                 case 4:
                     if(ll_isEmpty(listaEmpleados)==0){
+                        controller_ListEmployee(listaEmpleados);
                         if( controller_editEmployee(listaEmpleados) ){
                                 printf("\nEmpleado modificado con exito.\n");
                         }else{
@@ -70,6 +71,7 @@ int main()
                     break;
                 case 5:
                      if(ll_isEmpty(listaEmpleados)==0){
+                        controller_ListEmployee(listaEmpleados);
                          if(controller_removeEmployee(listaEmpleados)){
                             printf("\nEmpleado eliminado con exito.\n");
                         }else{
@@ -82,15 +84,17 @@ int main()
                     break;
                 case 6:
                     if(ll_isEmpty(listaEmpleados)==0){
-                      controller_ListEmployee(listaEmpleados);
+                      if(controller_ListEmployee(listaEmpleados)!=1)
+                      {
+                           printf("\nError. No se pudo cargar la lista.\n");
+                      }
                     }else{
                          printf("\nError. No hay empleados cargados.\n");
                     }
                     break;
                 case 7:
                     if(ll_isEmpty(listaEmpleados)==0){
-                        if(controller_sortEmployee(listaEmpleados ))
-                        {
+                        if(controller_sortEmployee(listaEmpleados )){
                             printf("\nLa lista se ordenó con exito.\n");
                         }else{
                              printf("\nHubo un error al ordenar la lista.\n");
@@ -101,11 +105,9 @@ int main()
                     break;
                 case 8:
                     if(ll_isEmpty(listaEmpleados)==0){
-                        if(controller_saveAsText("data.csv",listaEmpleados))
-                        {
-                            printf("\nLos datos se guardaron con exito.\n");
-                        }else
-                        {
+                        if(controller_saveAsText("data.csv",listaEmpleados)){
+                            printf("\nLos datos se guardaron con exito.(en modo texto)\n");
+                        }else{
                             printf("\nHubo un error al cargar los datos.\n");
                         }
                     }else{
@@ -113,7 +115,15 @@ int main()
                     }
                     break;
                 case 9:
-                    controller_saveAsBinary("databin",listaEmpleados);
+                    if(ll_isEmpty(listaEmpleados)==0){
+                        if(controller_saveAsBinary("databin",listaEmpleados)){
+                            printf("\nLos datos se guardaron con exito.(en modo binario)\n");
+                        }else{
+                            printf("\nHubo un error al cargar los datos.\n");
+                        }
+                    }else{
+                         printf("\nError. No hay empleados cargados.\n");
+                     }
                     break;
             }
         }while(option != 10);

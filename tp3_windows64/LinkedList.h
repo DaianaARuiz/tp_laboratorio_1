@@ -34,17 +34,17 @@ struct LinkedList
 
 
 //Publicas
-LinkedList* ll_newLinkedList(void); //(X)
+LinkedList* ll_newLinkedList(void);
 
-int ll_len(LinkedList* this);//(X)
+int ll_len(LinkedList* this);
 
 Node* test_getNode(LinkedList* this, int nodeIndex); //no se usa en este tp
 
 int test_addNode(LinkedList* this, int nodeIndex,void* pElement); //no se usa en este tp
 
-int ll_add(LinkedList* this, void* pElement); //(X)
+int ll_add(LinkedList* this, void* pElement);
 
-void* ll_get(LinkedList* this, int index); //(X)
+void* ll_get(LinkedList* this, int index);
 
 int ll_set(LinkedList* this, int index,void* pElement);
 
@@ -56,7 +56,7 @@ int ll_deleteLinkedList(LinkedList* this);
 
 int ll_indexOf(LinkedList* this, void* pElement);
 
-int ll_isEmpty(LinkedList* this); //(X)
+int ll_isEmpty(LinkedList* this);
 
 int ll_push(LinkedList* this, int index, void* pElement);
 
