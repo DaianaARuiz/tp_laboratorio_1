@@ -121,10 +121,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
                 {
                     if(nodeIndex==0)
                     {
-                        newNode->pElement=pElement;
-                        newNode->pNextNode=NULL;
-                        this->size++;
-                        returnAux = 0;
+                        
                     }
                 }
             }
