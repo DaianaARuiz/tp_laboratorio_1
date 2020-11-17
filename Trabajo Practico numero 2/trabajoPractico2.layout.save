@@ -7,14 +7,14 @@
 			<Cursor1 position="1418" topLine="28" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="main.c" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5055" topLine="127" />
+			<Cursor1 position="5055" topLine="105" />
 		</Cursor>
 	</File>
-	<File name="empleados.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="empleados.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1381" topLine="63" />
+			<Cursor1 position="2747" topLine="124" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
