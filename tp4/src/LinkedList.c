@@ -634,7 +634,14 @@ int ll_indexOf(LinkedList* this, void* pElement)
 int ll_isEmpty(LinkedList* this)
 {
     int returnAux = -1;
-
+    if(this!=NULL)
+    {
+        returnAux=0;
+        if(ll_len(this)==0)
+        {
+            returnAux=1;
+        }
+    }
     return returnAux;
 }
 
