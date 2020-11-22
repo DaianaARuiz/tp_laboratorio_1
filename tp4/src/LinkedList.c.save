@@ -60,9 +60,9 @@ static Node* getNode(LinkedList* this, int nodeIndex)
 
     if(this !=NULL && nodeIndex>=0 && nodeIndex < ll_len(this))
     {
-        pNode= this->pFirstNode;
+        pNode= this->pFirstNode; //por default accedo al primer vagon
 
-        for(int i=0;i<nodeIndex;i++)
+        for(int i=0;i<nodeIndex;i++) //me desplazo de vagon en vagon para finalmente acceder al nodo anterior del indice solicitado, accediendo a este ultimo mediante el pNextNode
         {
              pNode = pNode->pNextNode;
         }
@@ -185,7 +185,7 @@ static int addNode(LinkedList* lista, int nodeIndex,void* pElement){ //size de l
     return returnAux;
 }
 */
-
+/*
 static int addNode(LinkedList* this, int nodeIndex, void* pElement)
 {
     int returnAux = -1;
@@ -226,6 +226,38 @@ static int addNode(LinkedList* this, int nodeIndex, void* pElement)
 
     return returnAux;
 }
+*/
+//crea vagon, lo llena y lo inserta en el tren ahre
+static int addNode(LinkedList* this, int nodeIndex, void* pElement)
+{
+    int returnAux = -1;
+    Node *newNode = NULL;
+    Node *prevNode = NULL;
+
+    if(this != NULL && nodeIndex >= 0 && nodeIndex<=ll_len(this))
+    {
+        newNode = (Node*) malloc (sizeof(Node));
+
+        if(newNode != NULL)
+        {
+            newNode->pElement = pElement;
+            if(nodeIndex == 0)
+            {
+                newNode->pNextNode = this->pFirstNode; //engancho el vagon que estaba antes en i0 para no perderlo
+                this->pFirstNode = newNode;
+            }else
+            {
+                newNode->pNextNode = getNode(this, nodeIndex); //idem
+                prevNode = getNode(this, nodeIndex-1);
+                prevNode->pNextNode = newNode;
+            }
+            this->size++;
+            returnAux = 0;
+        }
+    }
+
+    return returnAux;
+}
 
 /** \brief Permite realizar el test de la funcion addNode la cual es privada
  *
@@ -242,7 +274,7 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 }
 
 
-/** \brief  Agrega un elemento a la lista
+/** \brief  Agrega un elemento a la lista, sin especificar la ubicacion, osea lo agrega al final
  * \param pList LinkedList* Puntero a la lista
  * \param pElement void* Puntero al elemento a ser agregado
  * \return int Retorna  (-1) Error: si el puntero a la lista es NULL
@@ -256,7 +288,7 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
     if(this != NULL)
     {
         len = ll_len(this);
-        addNode(this, len, pElement);
+        addNode(this, len, pElement); //añado nodo al final
         returnAux = 0;
     }
     return returnAux;
@@ -507,12 +539,8 @@ int ll_isEmpty(LinkedList* this)
  */
 int ll_push(LinkedList* this, int index, void* pElement)
 {
-    int returnAux=-1;
+    int returnAux= addNode(this, index, pElement);
 
-    if(this != NULL && index >= 0 && index < ll_len(this))
-    {
-        returnAux= addNode(this, index, pElement);
-    }
     return returnAux;
 }
 
@@ -616,10 +644,10 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 
          if(cloneArray!=NULL)
          {
-            for(int i=from; i<to; i++)
+            for(int i=from; i < to; i++)
             {
                 pElementAux = ll_get(this, i);
-                ll_add(auxList, pElementAux);
+                ll_add(cloneArray, pElementAux);
             }
          }
     }
@@ -637,8 +665,12 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray =NULL;
-
-
+    int from=0;
+    int to = ll_len(this);
+    if(this!=NULL)
+    {
+        cloneArray=ll_subList( this,from,to);
+    }
 
     return cloneArray;
 }
@@ -651,11 +683,37 @@ LinkedList* ll_clone(LinkedList* this)
  * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
                                 ( 0) Si ok
  */
+
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 {
+    void* elementAux;
+    void* elementI;
+    void* elementJ;
+    int len;
     int returnAux =-1;
 
-    return returnAux;
+    if(this!=NULL && pFunc!=NULL && (order==0 || order ==1))
+    {
+        len = ll_len(this);
 
+        for(int i=0;i<len-1;i++)
+        {
+            for(int j=i+1;j<len;j++)
+            {
+                elementI = ll_get(this, i);
+                elementJ = ll_get(this, j);
+
+                if((order==0 && pFunc(elementI,elementJ)>0) ||(order==1 && pFunc(elementI,elementJ)<0))
+                {
+                    elementAux=elementI;
+                    ll_set(this,i,elementJ);//elementI=elementJ;
+                    ll_set(this,j,elementI);//elementJ=elementAux;
+                }
+            }
+        }
+       returnAux=0;
+    }
+    return returnAux;
 }
+
 
